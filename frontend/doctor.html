@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediVault | Doctor Dashboard</title>
+    <meta name="description" content="Doctor dashboard for accessing patient records, reviewing documents, and managing consultations.">
+    <link rel="stylesheet" href="./css/stylev2.css">
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <div class="dashboard">
+        <!-- ================== SIDEBAR =========================== -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">
+                        M
+                    </div>
+                    <div class="sidebar-logo-text">
+                        MediVault
+                    </div>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul class="sidebar-menu">
+                    <li>
+                        <a href="#" class="sidebar-link active">
+                            <span class="sidebar-link-icon">🏥</span>Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#patientList" class="sidebar-link">
+                            <span class="sidebar-link-icon">👥</span>Patients
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#medicalRecords" class="sidebar-link">
+                            <span class="sidebar-link-icon">📄</span>Medical Records
+                        </a>
+                    </li>
+                    <!-- <li>
+                        <a href="#" class="sidebar-link">
+                            <span class="sidebar-link-icon">📅</span>
+                            Consultations
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="sidebar-link">
+                            <span class="sidebar-link-icon">🔍</span>
+                            Search Records
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="sidebar-link">
+                            <span class="sidebar-link-icon">⚙️</span>
+                            Settings
+                        </a>
+                    </li> -->
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="./doctor-login.html" class="btn btn-outline">Logout</a>
+            </div>
+        </aside>
+
+        <!-- =============== MAIN CONTENT ============================== -->
+        <main class="main-content">
+            <!-- =============== TOPBAR =========================== -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <button class="menu-toggle" id="menuToggle"> ☰ </button>
+                    <h1 class="topbar-title">Doctor Dashboard</h1>
+                </div>
+
+                <div class="topbar-right">
+                    <button class="notification-btn">🔔</button>
+                    <div class="user-profile">
+                        <div class="user-avatar">
+                            D
+                        </div>
+                        <div class="user-info">
+                            <span class="user-name" id="doctorName">Doctor</span>
+                            <span class="user-role" id="doctorSpecialization">Specialization</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- ============== DASHBOARD CONTENT ========================= -->
+            <section class="dashboard-content">
+                <div class="dashboard-header">
+                    <h2 class="dashboard-heading" id="welcomeDoctor">Welcome Back</h2>
+                    <p class="dashboard-subtitle"> Access patient records and manage consultations efficiently. </p>
+                </div>
+
+                <!-- =============== STATS ====================== -->
+                <div class="stats-grid">
+                    <div class="stat-card" style="margin-bottom: 35px;">
+                        <div class="stat-top">
+                            <div>
+                                <div class="stat-label">Total Patients</div>
+                                <div class="stat-value" id="totalPatients">0</div>
+                            </div>
+                            <div class="stat-icon"> 👥 </div>
+                        <!-- </div>
+                        <div class="stat-change stat-positive">
+                            +18 New Patients
+                        </div> -->
+
+                    </div>
+
+                    <div class="stat-card" style="margin-bottom: 35px;">
+                        <div class="stat-top">
+                            <div>
+                                <div class="stat-label">Male Patients</div>
+                                <div class="stat-value" id="malePatients">0</div>
+                            </div>
+                            <div class="stat-icon"> 📅 </div>
+                        </div>
+                        <!-- <div class="stat-change stat-positive">
+                            +12 This Week
+                        </div> -->
+                    </div>
+
+                    <div class="stat-card" style="margin-bottom: 35px;">
+                        <div class="stat-top">
+                            <div>
+                                <div class="stat-label">Female Patients</div>
+                                <div class="stat-value" id="femalePatients">0</div>
+                            </div>
+                            <div class="stat-icon"> 📄 </div>
+                        </div>
+                        <!-- <div class="stat-change stat-positive">
+                            +64 This Month
+                        </div> -->
+                    </div>
+
+                    <div class="stat-card" style="margin-bottom: 35px;">
+                        <div class="stat-top">
+                            <div>
+                                <div class="stat-label">Average Age</div>
+                                <div class="stat-value" id="averageAge">0</div>
+                            </div>
+                            <div class="stat-icon"> ⏳ </div>
+                        </div>
+                        <!-- <div class="stat-change stat-negative">
+                            Needs Attention
+                        </div> -->
+                    </div>
+                </div>
+
+                <!-- =================== SEARCH SECTION ================== -->
+                <div class="dashboard-card">
+                    <div class="dashboard-card-header">
+                        <h3 class="dashboard-card-title">Search Patient Records</h3>
+                    </div>
+                    <div class="search-section">
+                        <div class="search-input-wrapper">
+                            <input
+                                type="text"
+                                class="search-input"
+                                placeholder="Search by patient name, ID or document..."
+                            >
+                        </div>
+                        <button class="btn btn-primary">Search</button>
+                    </div>
+                </div>
+
+                <br>
+
+                <!-- ================ CONTENT GRID ====================== -->
+                <div class="content-grid">
+                    <!-- ============ PATIENT RECORDS ===================== -->
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-header">
+                            <h3 class="dashboard-card-title" id="patientList">Recent Patient Records</h3>
+                            <button class="btn btn-primary">View All</button>
+                        </div>
+
+                        <div class="table-wrapper">
+                            <table class="documents-table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Age</th>
+                                        <th>Gender</th>
+                                        <th>Phone</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="patientsTableBody">
+                                    <!-- ...... -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-header">
+                            <h3 class="dashboard-card-title">Patient Documents</h3>
+                        </div>
+
+                        <div class="table-wrapper">
+                            <table class="documents-table">
+                                <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Type</th>
+                                        <th>Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="documentsTableBody"></tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <!-- =============== ACTIVITY FEED ================== -->
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-header">
+                            <h3 class="dashboard-card-title" id="medicalRecords">Selected Patient Details</h3>
+                        </div>
+                        <div id="patientDetails">
+                            <p>Select a patient to view details.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- =====================================================
+         DOCTOR SCRIPT
+    ====================================================== -->
+
+    <script src="./js/doctor.js"></script>
+
+</body>
+</html>
+
+

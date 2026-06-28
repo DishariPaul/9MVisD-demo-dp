@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Login | MediVault</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="./css/stylev1.css">
+    <link rel="stylesheet" href="./css/stylev2.css">
+</head>
+
+<body>
+
+    <main class="auth-page">
+
+        <section class="auth-left">
+
+            <div class="auth-card fade-in">
+
+                <div class="auth-header">
+
+                    <a href="index.html" class="logo">
+                        <div class="logo-mark">M</div>
+                        <span>MediVault</span>
+                    </a>
+
+                    <h2 class="auth-title">
+                        Doctor Login
+                    </h2>
+
+                    <p>
+                        Access your patients and prescriptions.
+                    </p>
+
+                </div>
+
+                <div
+                    id="errorMessage"
+                    class="alert alert-danger error-message"
+                    style="display:none;"
+                ></div>
+
+                <form id="doctorLoginForm">
+
+                    <div class="form-group">
+
+                        <label class="form-label">
+                            Doctor Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="doctorName"
+                            class="form-control"
+                            placeholder="Enter your name"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label class="form-label">
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="text"
+                            id="phone"
+                            class="form-control"
+                            placeholder="+919876543210 (write as, +91XXXXXXXXXX)"
+                            required
+                        >
+
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                        style="width:100%;"
+                    >
+
+                        <span id="loginText">
+                            Login
+                        </span>
+
+                        <span
+                            id="loadingSpinner"
+                            style="display:none;"
+                        >
+                            Loading...
+                        </span>
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+        <aside class="auth-right">
+
+            <div class="auth-showcase">
+
+                <h2>
+                    Manage Patients Efficiently
+                </h2>
+
+                <p>
+                    View patient records, upload reports,
+                    and create prescriptions from one dashboard.
+                </p>
+
+            </div>
+
+        </aside>
+
+    </main>
+
+    <script src="./js/doctor-auth.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prescription</title>
+  <link rel="stylesheet" href="./css/prescription.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="rx-page">
+
+    <!-- ── HEADER ── -->
+    <header class="rx-header">
+      <div class="rx-header__doctor">
+        <div class="doctor-name" id="doctorName">DOCTOR NAME</div>
+        <div class="doctor-degree" id="doctorDegree">DOCTOR DEGREE</div>
+        <div class="doctor-extra" id="doctorExtra">(2-3 LINES)</div>
+      </div>
+      <div class="rx-header__logo">
+        <span class="rx-symbol">℞</span>
+      </div>
+      <div class="rx-header__chamber">
+        <div class="chamber-address" id="chamberAddress">CHAMBER ADDRESS</div>
+        <div class="chamber-time" id="chamberTime">CHAMBER TIME</div>
+        <div class="chamber-contact" id="doctorContact">DOCTOR CONTACT</div>
+      </div>
+    </header>
+
+    <div class="rx-divider-top"></div>
+
+    <!-- ── PATIENT META ROW ── -->
+    <section class="rx-patient-meta">
+      <div class="meta-group">
+        <label class="meta-label">Patient Name</label>
+        <span class="meta-value" id="patientName">—</span>
+      </div>
+      <div class="meta-group">
+        <label class="meta-label">Age</label>
+        <span class="meta-value" id="patientAge">—</span>
+      </div>
+      <div class="meta-group">
+        <label class="meta-label">Gender</label>
+        <span class="meta-value" id="patientGender">—</span>
+      </div>
+      <div class="meta-group">
+        <label class="meta-label">Contact</label>
+        <span class="meta-value" id="patientContact">—</span>
+      </div>
+    </section>
+
+    <!-- ── VITALS ROW ── -->
+    <section class="rx-vitals">
+      <div class="vital-item"><span class="vital-label">Weight</span><span class="vital-value" id="weight">—</span></div>
+      <div class="vital-sep"></div>
+      <div class="vital-item"><span class="vital-label">Height</span><span class="vital-value" id="height">—</span></div>
+      <div class="vital-sep"></div>
+      <div class="vital-item"><span class="vital-label">Pulse</span><span class="vital-value" id="pulse">—</span></div>
+      <div class="vital-sep"></div>
+      <div class="vital-item"><span class="vital-label">Blood Pressure</span><span class="vital-value" id="bloodPressure">—</span></div>
+      <div class="vital-sep"></div>
+      <div class="vital-item"><span class="vital-label">Temperature</span><span class="vital-value" id="temperature">—</span></div>
+      <div class="vital-sep"></div>
+      <div class="vital-item"><span class="vital-label">Resp. Rate</span><span class="vital-value" id="respiratoryRate">—</span></div>
+    </section>
+
+    <!-- ── MAIN CONTENT ── -->
+    <div class="rx-body">
+
+      <!-- LEFT PANEL -->
+      <aside class="rx-panel rx-panel--left">
+
+        <div class="panel-section">
+          <h3 class="panel-heading">Patient History</h3>
+          <div class="tag-input-row">
+            <div class="tag-search-wrap">
+              <input class="tag-input" id="historyInput" type="text" placeholder="Type / Search (e.g. hypertension)" autocomplete="off" />
+              <ul class="tag-dropdown" id="historyDropdown"></ul>
+            </div>
+            <button class="btn-add" id="addHistoryBtn">+ Add</button>
+          </div>
+          <div class="tag-list" id="historyTags"></div>
+        </div>
+
+        <div class="panel-divider"></div>
+
+        <div class="panel-section panel-section--grow">
+          <h3 class="panel-heading">Current Illness</h3>
+          <div class="tag-input-row">
+            <div class="tag-search-wrap">
+              <input class="tag-input" id="illnessInput" type="text" placeholder="Type / Search (e.g. viral fever)" autocomplete="off" />
+              <ul class="tag-dropdown" id="illnessDropdown"></ul>
+            </div>
+            <button class="btn-add" id="addIllnessBtn">+ Add</button>
+          </div>
+          <div class="tag-list" id="illnessTags"></div>
+        </div>
+
+        <div class="panel-divider"></div>
+
+        <div class="panel-section panel-section--grow">
+          <h3 class="panel-heading">Advice</h3>
+          <div class="tag-input-row">
+            <div class="tag-search-wrap">
+              <input class="tag-input" id="adviceInput" type="text" placeholder="Type / Search (e.g. rest, fluids)" autocomplete="off" />
+              <ul class="tag-dropdown" id="adviceDropdown"></ul>
+            </div>
+            <button class="btn-add" id="addAdviceBtn">+ Add</button>
+          </div>
+          <div class="tag-list" id="adviceTags"></div>
+        </div>
+
+      </aside>
+
+      <!-- RIGHT PANEL -->
+      <main class="rx-panel rx-panel--right">
+
+        <h2 class="medicines-heading">
+          <span class="rx-badge">℞</span> Medicines Prescribed
+        </h2>
+
+        <div class="med-table-wrapper">
+          <table class="med-table">
+            <thead>
+              <tr>
+                <th class="col-name">Medicine Name</th>
+                <th class="col-dosage">Dosage</th>
+                <th class="col-freq">Frequency</th>
+                <th class="col-dur">Duration</th>
+                <th class="col-action"></th>
+              </tr>
+            </thead>
+            <tbody id="medicineTableBody">
+              <!-- Rows injected by JS -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="med-add-row">
+          <div class="medicine-search-wrapper">
+            <input
+                class="med-input"
+                id="medName"
+                type="text"
+                placeholder="Medicine name (e.g. Calpol)"
+                autocomplete="off"
+            />
+            <div id="medicineDropdown" class="medicine-dropdown"></div>
+          </div>
+
+          <input class="med-input med-input--sm" id="medDosage"  type="text" placeholder="Dosage" />
+
+          <div class="med-freq-wrap">
+            <input class="med-input med-input--sm" id="medFreq" type="number" min="1" placeholder="1" />
+            <span class="unit-label">/day</span>
+          </div>
+
+          <div class="med-dur-wrap">
+            <input class="med-input med-input--sm" id="medDuration" type="number" min="1" placeholder="7" />
+            <span class="unit-label">days</span>
+          </div>
+          
+          <button class="btn-add btn-add--green" id="addMedBtn">+ Add</button>
+        </div>
+
+        <div class="followup-row">
+          <label class="followup-label">Follow-up Visit in:</label>
+          <input class="followup-input" id="followUpDate" type="date" />
+        </div>
+
+      </main>
+    </div>
+
+    <!-- ── FOOTER BAR ── -->
+    <footer class="rx-footer">
+      <div class="footer-left">
+        <span class="footer-date" id="rxDateLabel">Date: —</span>
+      </div>
+      <div class="footer-actions">
+        <button class="footer-btn btn--edit"    id="editBtn">Edit</button>
+        <button class="footer-btn btn--delete"  id="deleteBtn">Delete</button>
+        <button class="footer-btn btn--preview" id="previewBtn">Preview</button>
+        <button class="footer-btn btn--save"    id="saveBtn">Save</button>
+        <button class="footer-btn btn--print"   id="printBtn">Print</button>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="./js/prescription.js"></script>
+</body>
+</html>
+
+<!--
+previewModal
+previewContent
+
+previousModal
+previousTableBody
+-->

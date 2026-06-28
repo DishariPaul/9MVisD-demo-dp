@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- =============== MediVault - Patient Dashboard ====================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediVault | Patient Dashboard</title>
+    <meta
+        name="description"
+        content="Patient dashboard for managing healthcare documents, uploading medical records, tracking storage usage, and accessing reports."
+    >
+    <link rel="stylesheet" href="./css/stylev2.css">
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+</head>
+
+<body>
+    <!-- =============== MOBILE OVERLAY =================================== -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <div class="dashboard">
+        <!-- ============= SIDEBAR ================================ -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">
+                        M
+                    </div>
+                    <div class="sidebar-logo-text">
+                        MediVault
+                    </div>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul class="sidebar-menu">
+                    <li>
+                        <a href="#" class="sidebar-link active"> <span class="sidebar-link-icon">🏠</span>Dashboard </a>
+                    </li>
+                    <li>
+                        <a href="#mydoc" class="sidebar-link"> <span class="sidebar-link-icon">📄</span>My Documents </a>
+                    </li>
+                    <li>
+                        <a href="#" class="sidebar-link"> <span class="sidebar-link-icon">⬆️</span>Upload Records </a>
+                    </li>
+                    <!-- <li>
+                        <a href="#" class="sidebar-link">
+                            <span class="sidebar-link-icon">📋</span>
+                            Medical History
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="sidebar-link">
+                            <span class="sidebar-link-icon">⭐</span>
+                            Premium
+                        </a>
+                    </li> -->
+                    <!-- <li>
+                        <a href="#" class="sidebar-link"> <span class="sidebar-link-icon">⚙️</span>Settings </a>
+                    </li> -->
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="#" id="logoutBtn" class="btn btn-outline">Logout</a>
+            </div>
+        </aside>
+
+
+        <!-- ====== MAIN CONTENT ========================== -->
+        <main class="main-content">
+            <!-- =============================================
+                 TOPBAR
+            ============================================== -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <button class="menu-toggle" id="menuToggle"> ☰ </button>
+                    <h1 class="topbar-title">Patient Dashboard</h1>
+                </div>
+
+                <div class="topbar-right">
+                    <button class="notification-btn">👤</button>
+                    <div class="user-profile">
+                        <!-- <div class="user-avatar"> P</div> -->
+                        <div class="user-info">
+                            <span id="patientName" class="user-name"> Patient</span>
+                            <!-- <span class="user-role">Premium Member</span> -->
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- ======== DASHBOARD CONTENT ================================= -->
+            <section class="dashboard-content">
+
+                <div class="dashboard-header">
+                    <h2 class="dashboard-heading">Welcome Back</h2>
+                    <p class="dashboard-subtitle">
+                        Manage your healthcare records and documents securely.
+                    </p>
+                </div>
+
+                <!-- =================== STATS ================= -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <div>
+                                <div class="stat-label">
+                                    Total Documents
+                                </div>
+                                <div class="stat-value" id="totalDocuments">0</div>
+                            </div>
+                            <div class="stat-icon">
+                                📄
+                            </div>
+                        </div>
+
+                        <!-- <div class="stat-change stat-positive">
+                            +3 this month
+                        </div> -->
+                    </div>
+
+                    <div class="stat-card">
+
+                        <div class="stat-top">
+                            <div>
+                                <div class="stat-label">
+                                    Reports Downloaded
+                                </div>
+                                <div class="stat-value">
+                                    18
+                                </div>
+                            </div>
+                            <div class="stat-icon">
+                                ⬇️
+                            </div>
+                        </div>
+
+                        <div class="stat-change stat-positive">
+                            Active Usage
+                        </div>
+
+                    </div>
+
+                    <div class="stat-card">
+                        
+                        <div class="stat-top">
+                            <div>
+                                <div class="stat-label">
+                                    Doctor Access
+                                </div>
+
+                                <div class="stat-value" id="doctorAccess">0</div>
+                            </div>
+
+                            <div class="stat-icon">👨‍⚕️</div>
+
+                        </div>
+
+                        <div class="stat-change stat-positive">
+                            Authorized
+                        </div>
+
+                    </div>
+
+                    <div class="stat-card">
+
+                        <div class="stat-top">
+
+                            <div>
+
+                                <div class="stat-label">
+                                    Storage Used
+                                </div>
+
+                                <div class="stat-value">
+                                    3.2GB
+                                </div>
+
+                            </div>
+
+                            <div class="stat-icon">
+                                ☁️
+                            </div>
+
+                        </div>
+
+                        <div class="stat-change stat-positive">
+                            64% Utilized
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- =========== STORAGE + UPLOAD SECTION ========================== -->
+                <div class="content-grid">
+
+                    <div class="dashboard-card storage-card">
+
+                        <div class="dashboard-card-header">
+
+                            <h3 class="dashboard-card-title">
+                                Storage Usage
+                            </h3>
+
+                        </div>
+
+                        <div>
+
+                            <strong>3.2 GB</strong> of 5 GB used
+
+                        </div>
+
+                        <div class="storage-progress">
+
+                            <div
+                                class="storage-progress-bar"
+                                style="width:64%;"
+                            ></div>
+
+                        </div>
+
+                        <p>
+                            Upgrade to Premium for additional storage and advanced features.
+                        </p>
+
+                    </div>
+
+                    <div class="dashboard-card">
+
+                        <div class="dashboard-card-header">
+                            <h3 class="dashboard-card-title">Upload Medical Records</h3>
+                        </div>
+
+                        <div class="upload-box">
+                            <p>Drag & Drop files here</p>
+                            <br>
+                            <select id="documentType" style="margin: 10px; padding: 10px; background-color: #2563eb; color: white; border: 2px solid black; border-radius: 15px;">
+                                <option value="Prescription">Prescription</option>
+                                <option value="Blood Report">Blood Report</option>
+                                <option value="MRI">MRI</option>
+                                <option value="X-Ray">X-Ray</option>
+                                <option value="Other">Other</option>
+                            </select>
+
+                            <button class="btn btn-primary" id="selectFileBtn">Select Files</button>
+                            <button class="btn btn-outline" id="cameraBtn" style="margin-top:10px;">Take Picture</button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <br>
+
+                <!-- ============== DOCUMENTS TABLE ======================== -->
+                <div class="dashboard-card" id="mydoc">
+
+                    <div class="dashboard-card-header">
+
+                        <h3 class="dashboard-card-title">Recent Documents</h3>
+                        <!-- <button class="btn btn-primary">View All</button> -->
+
+                    </div>
+
+                    <div class="table-wrapper">
+
+                        <table class="documents-table">
+
+                            <thead>
+
+                                <tr>
+                                    <th>Document</th>
+                                    <th>Category</th>
+                                    <th>Date</th>
+                                    <th>Action</th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="documentsTableBody">
+
+                                <!-- <tr>
+                                    <td>Blood Test Report.pdf</td>
+                                    <td>Laboratory</td>
+                                    <td>15 Jun 2026</td>
+                                    <td>
+                                        <button class="btn btn-outline">
+                                            Download
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>MRI Scan.pdf</td>
+                                    <td>Radiology</td>
+                                    <td>10 Jun 2026</td>
+                                    <td>
+                                        <button class="btn btn-outline">
+                                            Download
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Prescription.pdf</td>
+                                    <td>Medication</td>
+                                    <td>04 Jun 2026</td>
+                                    <td>
+                                        <button class="btn btn-outline">
+                                            Download
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Health Summary.pdf</td>
+                                    <td>General</td>
+                                    <td>30 May 2026</td>
+                                    <td>
+                                        <button class="btn btn-outline">
+                                            Download
+                                        </button>
+                                    </td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <br>
+
+                <!-- ========= PRESCRIPTIONS UPLOADED ================= -->
+                <div class="dashboard-card" id="myprescriptions">
+                    <div class="dashboard-card-header">
+                        <h3 class="dashboard-card-title">
+                            My Prescriptions
+                        </h3>
+                    </div>
+                    <div class="table-wrapper">
+                        <table class="documents-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Doctor</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="prescriptionsTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ========= PREMIUM CTA ================= -->
+                <!-- <div class="premium-banner">
+                    <h3>Upgrade to Premium</h3>
+                    <p>
+                        Get increased storage, advanced analytics,
+                        priority support, and enhanced document management tools.
+                    </p>
+                    <button class="btn btn-outline"> Upgrade Now</button>
+                </div> -->
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+
+
+
+    <div id="cameraModal" class="camera-modal">
+
+        <div class="camera-content">
+
+            <video
+                id="cameraVideo"
+                autoplay
+                playsinline
+            ></video>
+
+            <canvas
+                id="cameraCanvas"
+                style="display:none;"
+            ></canvas>
+
+            <div class="camera-actions">
+
+                <button
+                    id="captureBtn"
+                    class="btn btn-primary"
+                >
+                    Capture
+                </button>
+
+                <button
+                    id="closeCameraBtn"
+                    class="btn btn-outline"
+                >
+                    Close
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="./js/patient.js"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>MediVault | Login</title>
+    
+    <meta name="description" content="Login to MediVault and securely access your healthcare documents.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/stylev1.css">
+    <link rel="stylesheet" href="./css/stylev2.css">
+</head>
+
+<body>
+    <main class="auth-page">
+
+        <!-- LEFT SIDE -->
+        <section class="auth-left">
+            <div class="auth-card fade-in">
+                <div class="auth-header">
+                    <a href="index.html" class="logo">
+                        <div class="logo-mark">M</div>
+                        <span>MediVault</span>
+                    </a>
+
+                    <h2 class="auth-title">Welcome Back</h2>
+
+                    <p>Login to access your healthcare dashboard.</p>
+                </div>
+
+                <!-- ERROR MESSAGE -->
+                <div id="errorMessage" class="alert alert-danger error-message" style="display:none;">Phone number and Patient name are required.</div>
+
+                <!-- LOGIN FORM -->
+                <form id="loginForm">
+                    <!-- PHONE NUMBER -->
+                    <div class="form-group">
+                        <label for="phoneNumber" class="form-label">Phone Number</label>
+                        <input
+                            type="text"
+                            id="phoneNumber"
+                            class="form-control"
+                            placeholder=" example: +919123456701"
+                            required
+                        >
+                    </div>
+
+                    <!-- PATIENT NAME -->
+                    <div class="form-group">
+                        <label for="patientName" class="form-label">Patient Name</label>
+                        <input
+                            type="text"
+                            id="patientName"
+                            class="form-control"
+                            placeholder="example: Ms. Jaya Kulkarni"
+                            required
+                        >
+                    </div>
+
+                    <!-- LOGIN BUTTON -->
+                    <button type="submit" class="btn btn-primary" style="width:100%;">
+                        <span id="loginText">Login</span>
+                        <span id="loadingSpinner" class="loading-spinner" style="display:none;"> Loading... </span>
+                    </button>
+                </form>
+
+                <!-- DIVIDER -->
+                <div class="divider"><span>OR</span></div>
+                
+                <!-- GOOGLE LOGIN -->
+                <button class="btn btn-outline social-login" type="button">Continue with Google</button>
+
+                <!-- FOOTER -->
+                <div class="auth-footer">
+                    <p>Access is managed by your healthcare provider.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- RIGHT SIDE -->
+        <aside class="auth-right">
+            <div class="auth-showcase">
+                <h2>
+                    Secure Healthcare Records,
+                    Anytime, Anywhere.
+                </h2>
+                <p>
+                    Join thousands of patients,
+                    doctors, and healthcare providers
+                    using MediVault to manage medical
+                    records safely and efficiently.
+                </p>
+
+                <div class="showcase-list">
+                    <div class="showcase-item">🔒 End-to-End Document Security</div>
+                    <div class="showcase-item">📄 Secure Medical Record Access</div>
+                    <div class="showcase-item">⚡ Fast Document Retrieval</div>
+                    <div class="showcase-item">☁️ Protected Cloud Storage</div>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+
+    <script src="./js/auth.js"></script>
+
+</body>
+</html>
+

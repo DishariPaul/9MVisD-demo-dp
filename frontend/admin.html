@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- =====================================================
+         MediVault - Admin Dashboard
+         File: admin.html
+    ====================================================== -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MediVault | Admin Dashboard</title>
+
+    <meta
+        name="description"
+        content="Admin dashboard for managing doctors, patients, documents and platform analytics."
+    >
+
+    <link rel="stylesheet" href="./css/stylev2.css">
+    <link rel="stylesheet" href="./css/dashboard.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+<body>
+
+    <!-- =====================================================
+         MOBILE OVERLAY
+    ====================================================== -->
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- =====================================================
+         DASHBOARD WRAPPER
+    ====================================================== -->
+
+    <div class="dashboard">
+
+        <!-- =================================================
+             SIDEBAR
+        ================================================== -->
+
+        <aside class="sidebar" id="sidebar">
+
+            <div class="sidebar-header">
+
+                <a href="index.html" class="sidebar-logo">
+
+                    <div class="sidebar-logo-icon">
+                        M
+                    </div>
+
+                    <div class="sidebar-logo-text">
+                        MediVault
+                    </div>
+
+                </a>
+
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <ul class="sidebar-menu">
+
+                    <li>
+                        <a href="#" class="sidebar-link active">
+                            <span class="sidebar-link-icon">📊</span>
+                            Dashboard
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="sidebar-link">
+                            <span class="sidebar-link-icon">👨‍⚕️</span>
+                            Doctors
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="sidebar-link">
+                            <span class="sidebar-link-icon">🧑‍🤝‍🧑</span>
+                            Patients
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="sidebar-link">
+                            <span class="sidebar-link-icon">📁</span>
+                            Documents
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="sidebar-link">
+                            <span class="sidebar-link-icon">💳</span>
+                            Subscriptions
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="sidebar-link">
+                            <span class="sidebar-link-icon">⚙️</span>
+                            Settings
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+            <div class="sidebar-footer">
+
+                <a href="login.html" class="btn btn-outline">
+                    Logout
+                </a>
+
+            </div>
+
+        </aside>
+
+        <!-- =================================================
+             MAIN CONTENT
+        ================================================== -->
+
+        <main class="main-content">
+
+            <!-- =============================================
+                 TOPBAR
+            ============================================== -->
+
+            <header class="topbar">
+
+                <div class="topbar-left">
+
+                    <button
+                        class="menu-toggle"
+                        id="menuToggle"
+                    >
+                        ☰
+                    </button>
+
+                    <h1 class="topbar-title">
+                        Admin Dashboard
+                    </h1>
+
+                </div>
+
+                <div class="topbar-right">
+
+                    <button class="notification-btn">
+                        🔔
+                    </button>
+
+                    <div class="user-profile">
+
+                        <div class="user-avatar">
+                            A
+                        </div>
+
+                        <div class="user-info">
+
+                            <span class="user-name">
+                                Admin User
+                            </span>
+
+                            <span class="user-role">
+                                System Administrator
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+            <!-- =============================================
+                 CONTENT
+            ============================================== -->
+
+            <section class="dashboard-content">
+
+                <!-- Header -->
+
+                <div class="dashboard-header">
+
+                    <h2 class="dashboard-heading">
+                        Platform Overview
+                    </h2>
+
+                    <p class="dashboard-subtitle">
+                        Monitor platform activity and manage users.
+                    </p>
+
+                </div>
+
+                <!-- ========= STATISTICS ============================ -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <div>
+                                <div class="stat-label">Total Patients</div>
+                                <div class="stat-value" id="totalPatients">0</div>
+                            </div>
+                            <div class="stat-icon">👥</div>
+                        </div>
+
+                        <div class="stat-change stat-positive">
+                            +12.4% this month
+                        </div>
+
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <div>
+                                <div class="stat-label">Doctors</div>
+                                <div class="stat-value" id="totalDoctors">0</div>
+                            </div>
+                            <div class="stat-icon">👨‍⚕️</div>
+                        </div>
+
+                        <div class="stat-change stat-positive">
+                            +5.2% this month
+                        </div>
+
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <div>
+                                <div class="stat-label">Documents</div>
+                                <div class="stat-value" id="totalDocuments">0</div>
+                            </div>
+
+                            <div class="stat-icon">📄</div>
+                        </div>
+
+                        <div class="stat-change stat-positive">
+                            +19.8% this month
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <div>
+                                <div class="stat-label">Premium Users</div>
+                                <div class="stat-value" id="premiumUsers">0</div>
+                            </div>
+
+                            <div class="stat-icon">⭐</div>
+                        </div>
+
+                        <div class="stat-change stat-positive">
+                            +9.1% this month
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- =========================================
+                     CONTENT GRID
+                ========================================== -->
+
+                <div class="content-grid">
+
+                    <!-- ============ PATIENT TABLE ====================== -->
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-header">
+                            <h3 class="dashboard-card-title">
+                                Recent Patients
+                            </h3>
+                            <button class="btn btn-primary">
+                                View All
+                            </button>
+                        </div>
+                        <div class="table-wrapper">
+                            <table class="documents-table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>ID</th>
+                                        <th>Status</th>
+                                        <th>Documents</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="patientsTableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- ============ DOCTOR TABLE ====================== -->
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-header">
+                            <h3>Doctors</h3>
+                        </div>
+
+                        <div class="table-wrapper">
+                            <table class="documents-table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Specialization</th>
+                                        <th>Phone</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="doctorsTableBody">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- ================ ACTIVITY FEED ======================= -->
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-header">
+                            <h3 class="dashboard-card-title">Recent Activity</h3>
+                        </div>
+
+                        <div class="activity-feed">
+                            <div class="activity-item">
+                                <div class="activity-icon">📄</div>
+
+                                <div class="activity-content">
+                                    <h4>
+                                        New document uploaded
+                                    </h4>
+
+                                    <p>
+                                        MRI Report uploaded by Patient #2045
+                                    </p>
+
+                                    <span class="activity-time">
+                                        5 min ago
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="activity-item">
+
+                                <div class="activity-icon">
+                                    👨‍⚕️
+                                </div>
+
+                                <div class="activity-content">
+
+                                    <h4>
+                                        Doctor Registered
+                                    </h4>
+
+                                    <p>
+                                        Dr. James Wilson joined platform
+                                    </p>
+
+                                    <span class="activity-time">
+                                        15 min ago
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="activity-item">
+
+                                <div class="activity-icon">
+                                    ⭐
+                                </div>
+
+                                <div class="activity-content">
+
+                                    <h4>
+                                        Premium Upgrade
+                                    </h4>
+
+                                    <p>
+                                        Patient upgraded to Premium Plan
+                                    </p>
+
+                                    <span class="activity-time">
+                                        1 hour ago
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="activity-item">
+
+                                <div class="activity-icon">
+                                    🔒
+                                </div>
+
+                                <div class="activity-content">
+
+                                    <h4>
+                                        Security Audit Complete
+                                    </h4>
+
+                                    <p>
+                                        Daily system security check passed
+                                    </p>
+
+                                    <span class="activity-time">
+                                        3 hours ago
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- =====================================================
+         ADMIN SCRIPT
+    ====================================================== -->
+
+    <script src="js/admin.js"></script>
+
+</body>
+</html>
+
+
