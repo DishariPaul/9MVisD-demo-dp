@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS advice_master (
 
 
 -- ======================== PRESCRIPTIONS ====================================== --
-CREATE TABLE prescriptions (
+CREATE TABLE IF NOT EXISTS prescriptions (
     prescription_id VARCHAR(50) PRIMARY KEY,
     patient_id VARCHAR(50) REFERENCES patients(patient_id),
     doctor_id VARCHAR(50) REFERENCES doctors(doctor_id),
